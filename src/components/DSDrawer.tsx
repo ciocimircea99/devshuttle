@@ -35,7 +35,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
         },
         [theme.breakpoints.up('sm')]: {
           paddingLeft: DRAWER_LEFT_PADDING_MD
-        }
+        },
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
@@ -97,7 +97,8 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
           },
           [theme.breakpoints.up('sm')]: {
             marginTop: APP_BAR_HEIGHT_MD
-          }
+          },
+          backgroundColor: theme.palette.primary.main + '00'
         },
       }}
       onClose={toggleDrawer(false)}
