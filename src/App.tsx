@@ -25,6 +25,7 @@ function DSApp() {
   return (
     <div>
       <DSAppBar
+        drawerOpen={state.drawerOpen}
         toggleDrawer={toggleDrawer}
       />
       <DSDrawer

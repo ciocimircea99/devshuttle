@@ -4,23 +4,31 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 
-import MenuItem from '@mui/material/MenuItem';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+
 import AdbIcon from '@mui/icons-material/Adb';
 import { bottomSitePages, topSitePages } from '../model/DSPage';
 import { DSPage } from '../model/DSPage';
+import { useTheme } from '@mui/material/styles';
+
+export const APP_BAR_HEIGHT_SM = '54px'
+export const APP_BAR_HEIGHT_MD = '64px'
 
 interface DSAppBarProps {
+  drawerOpen: boolean,
   toggleDrawer: (open: boolean) => any,
 }
 
-export default function DSAppBar({ toggleDrawer, ...props }: DSAppBarProps) {
+export default function DSAppBar({ drawerOpen, toggleDrawer, ...props }: DSAppBarProps) {
+
+  const theme = useTheme()
+
+  console.log(theme.breakpoints)
 
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -33,7 +41,14 @@ export default function DSAppBar({ toggleDrawer, ...props }: DSAppBarProps) {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{
+      [theme.breakpoints.down('sm')]: {
+        height: APP_BAR_HEIGHT_SM
+      },
+      [theme.breakpoints.up('sm')]: {
+        height: APP_BAR_HEIGHT_MD
+      }
+    }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -60,10 +75,10 @@ export default function DSAppBar({ toggleDrawer, ...props }: DSAppBarProps) {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={toggleDrawer(true)}
+              onClick={drawerOpen ? toggleDrawer(false) : toggleDrawer(true)}
               color="inherit"
             >
-              <MenuIcon />
+              {drawerOpen ? <CloseIcon /> : <MenuIcon />}
             </IconButton>
           </Box>
 
@@ -87,7 +102,7 @@ export default function DSAppBar({ toggleDrawer, ...props }: DSAppBarProps) {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {topSitePages.concat(bottomSitePages).map((page:DSPage) => (
+            {topSitePages.concat(bottomSitePages).map((page: DSPage) => (
               <Button
                 key={page.title}
                 sx={{ my: 2, color: 'white', display: 'block' }}

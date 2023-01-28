@@ -11,6 +11,9 @@ import ListItemText from '@mui/material/ListItemText';
 
 import { DSPage, topSitePages } from '../model/DSPage';
 import { bottomSitePages } from './../model/DSPage';
+import { useTheme } from '@mui/material/styles';
+import { APP_BAR_HEIGHT_MD, APP_BAR_HEIGHT_SM } from './DSAppBar';
+
 
 interface DSDrawerProps {
   drawerOpen: boolean,
@@ -18,6 +21,8 @@ interface DSDrawerProps {
 }
 
 export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawerProps) {
+
+  const theme = useTheme()
 
   const drawerMenu = () => (
     <Box
@@ -28,12 +33,19 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
     >
       <List>
         {topSitePages.map((page: DSPage, index) => (
-          <ListItem key={page.title} disablePadding>
+          <ListItem
+            key={page.title}
+            disablePadding
+          >
             <ListItemButton>
-              <ListItemIcon>
+              <ListItemIcon
+                sx={{ paddingLeft: '20px' }}
+              >
                 {page.iconComponent}
               </ListItemIcon>
-              <ListItemText primary={page.title} />
+              <ListItemText
+                primary={page.title}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -41,12 +53,19 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
       <Divider />
       <List>
         {bottomSitePages.map((page: DSPage, index) => (
-          <ListItem key={page.title} disablePadding>
+          <ListItem
+            key={page.title}
+            disablePadding
+          >
             <ListItemButton>
-              <ListItemIcon>
+              <ListItemIcon
+                sx={{ paddingLeft: '20px' }}
+              >
                 {page.iconComponent}
               </ListItemIcon>
-              <ListItemText primary={page.title} />
+              <ListItemText
+                primary={page.title}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -55,21 +74,29 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
   );
 
   return (
-    <Box>
-      <Drawer
-        anchor='top'
-        open={drawerOpen}
-        variant="persistent"
-        onClick={toggleDrawer(false)}
-        sx={{
+    <Drawer
+      anchor='left'
+      open={drawerOpen}
+      variant="persistent"
+      onClick={toggleDrawer(false)}
+      sx={{
+        width: 'auto',
+        flexShrink: 0,
+        [`& .MuiDrawer-paper`]: {
           width: 'auto',
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: 'auto', height:'100%', boxSizing: 'border-box' },
-        }}
-        onClose={toggleDrawer(false)}
-      >
-        {drawerMenu()}
-      </Drawer>
-    </Box>
+          height: '100%',
+          boxSizing: 'border-box',
+          [theme.breakpoints.down('sm')]: {
+            marginTop: APP_BAR_HEIGHT_SM
+          },
+          [theme.breakpoints.up('sm')]: {
+            marginTop: APP_BAR_HEIGHT_MD
+          }
+        },
+      }}
+      onClose={toggleDrawer(false)}
+    >
+      {drawerMenu()}
+    </Drawer>
   );
 }
