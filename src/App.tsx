@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
 
-function App() {
+import DSDrawer from './components/DSDrawer';
+import DSAppBar from './components/DSAppBar';
+
+function DSApp() {
+
+  const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event.type === 'keydown' &&
+      ((event as React.KeyboardEvent).key === 'Tab' ||
+        (event as React.KeyboardEvent).key === 'Shift')
+    ) {
+      return;
+    }
+
+    setState({ ...state, drawerOpen: open });
+  };
+
+  const [state, setState] = React.useState({
+    drawerOpen: false,
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DSAppBar
+        toggleDrawer={toggleDrawer}
+      />
+      <DSDrawer
+        drawerOpen={state.drawerOpen}
+        toggleDrawer={toggleDrawer}
+      />
     </div>
   );
 }
 
-export default App;
+export default DSApp;
