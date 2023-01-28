@@ -14,6 +14,8 @@ import { bottomSitePages } from './../model/DSPage';
 import { useTheme } from '@mui/material/styles';
 import { APP_BAR_HEIGHT_MD, APP_BAR_HEIGHT_SM } from './DSAppBar';
 
+export const DRAWER_LEFT_PADDING_SM = '12px'
+export const DRAWER_LEFT_PADDING_MD = '20px'
 
 interface DSDrawerProps {
   drawerOpen: boolean,
@@ -26,7 +28,15 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
 
   const drawerMenu = () => (
     <Box
-      sx={{ width: 'auto' }}
+      sx={{
+        width: 'auto',
+        [theme.breakpoints.down('sm')]: {
+          paddingLeft: DRAWER_LEFT_PADDING_SM
+        },
+        [theme.breakpoints.up('sm')]: {
+          paddingLeft: DRAWER_LEFT_PADDING_MD
+        }
+      }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
@@ -38,9 +48,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
             disablePadding
           >
             <ListItemButton>
-              <ListItemIcon
-                sx={{ paddingLeft: '20px' }}
-              >
+              <ListItemIcon>
                 {page.iconComponent}
               </ListItemIcon>
               <ListItemText
@@ -58,9 +66,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
             disablePadding
           >
             <ListItemButton>
-              <ListItemIcon
-                sx={{ paddingLeft: '20px' }}
-              >
+              <ListItemIcon>
                 {page.iconComponent}
               </ListItemIcon>
               <ListItemText
@@ -70,7 +76,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
           </ListItem>
         ))}
       </List>
-    </Box>
+    </Box >
   );
 
   return (
