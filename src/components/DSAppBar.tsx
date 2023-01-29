@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import { Menu, MenuItem } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -15,6 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { bottomSitePages, topSitePages } from '../model/DSPage';
 import { DSPage } from '../model/DSPage';
 import { useTheme } from '@mui/material/styles';
+import DSAppBarPageCategoryButton from './DSAppBarPageCategoryButton';
 
 export const APP_BAR_HEIGHT_SM = '54px'
 export const APP_BAR_HEIGHT_MD = '64px'
@@ -28,17 +30,31 @@ export default function DSAppBar({ drawerOpen, toggleDrawer, ...props }: DSAppBa
 
   const theme = useTheme()
 
-  console.log(theme.breakpoints)
+  // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorElUser(event.currentTarget);
+  // };
 
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  // const handleCloseUserMenu = () => {
+  //   setAnchorElUser(null);
+  // };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const renderPageEntry = (page: DSPage) => {
+    if (page.subpages.length === 0) {
+      return (
+        <Button
+          key={page.title}
+          sx={{ my: 2, color: 'white', display: 'block' }}
+        >
+          {page.title}
+        </Button>
+      )
+    }
+    else {
+      return <DSAppBarPageCategoryButton page={page} />
+    }
+  }
 
   return (
     <AppBar position="static" sx={{
@@ -102,46 +118,42 @@ export default function DSAppBar({ drawerOpen, toggleDrawer, ...props }: DSAppBa
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {topSitePages.concat(bottomSitePages).map((page: DSPage) => (
-              <Button
-                key={page.title}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+            {topSitePages.concat(bottomSitePages).map((page: DSPage) => renderPageEntry(page))}
+          </Box>
+
+          {
+            /*    ---------------------------------- User Menu TBI Later
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+               <Menu 
+                sx={{ mt: '45px' }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
               >
-                {page.title}
-              </Button>
-            ))}
-          </Box>
-          {/*    ---------------------------------- User Menu TBI Later
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-             <Menu 
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {topSitePages.concat(bottomSitePages).map((page: DSPage) => (
-                <MenuItem key={page.title} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{page.title}</Typography>
-                </MenuItem>
-              ))}
-            </Menu> 
-          </Box>
-          */}
+                {topSitePages.concat(bottomSitePages).map((page: DSPage) => (
+                  <MenuItem key={page.title} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{page.title}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu> 
+            </Box>
+            */
+          }
         </Toolbar>
       </Container>
     </AppBar>

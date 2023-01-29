@@ -26,6 +26,40 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
 
   const theme = useTheme()
 
+  const renderPageEntry = (page: DSPage) => (
+    <div>
+      <ListItem
+        key={page.title}
+        disablePadding
+      >
+        <ListItemButton>
+          <ListItemIcon>
+            {page.iconComponent}
+          </ListItemIcon>
+          <ListItemText
+            primary={page.title}
+          />
+        </ListItemButton>
+      </ListItem>
+      {page.subpages.map((page: DSPage) => (
+        <ListItem
+          key={page.title}
+          disablePadding
+          sx={{ paddingLeft: theme.spacing(2) }}
+        >
+          <ListItemButton>
+            <ListItemIcon>
+              {page.iconComponent}
+            </ListItemIcon>
+            <ListItemText
+              primary={page.title}
+            />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </div>
+  )
+
   const drawerMenu = () => (
     <Box
       sx={{
@@ -42,39 +76,11 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {topSitePages.map((page: DSPage, index) => (
-          <ListItem
-            key={page.title}
-            disablePadding
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                {page.iconComponent}
-              </ListItemIcon>
-              <ListItemText
-                primary={page.title}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {topSitePages.map((page: DSPage, index) => renderPageEntry(page))}
       </List>
       <Divider />
       <List>
-        {bottomSitePages.map((page: DSPage, index) => (
-          <ListItem
-            key={page.title}
-            disablePadding
-          >
-            <ListItemButton>
-              <ListItemIcon>
-                {page.iconComponent}
-              </ListItemIcon>
-              <ListItemText
-                primary={page.title}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {bottomSitePages.map((page: DSPage, index) => renderPageEntry(page))}
       </List>
     </Box >
   );

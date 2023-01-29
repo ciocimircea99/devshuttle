@@ -38,6 +38,10 @@ export const topSitePages: DSPage[] = [
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <HomeOutlinedIcon />,
         []),
+    new DSPage("Noutati",
+        "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+        <FeedOutlinedIcon />,
+        []),
     new DSPage("Echipa",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <Groups2OutlinedIcon />,
@@ -57,16 +61,12 @@ export const topSitePages: DSPage[] = [
             "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
             <LocalActivityOutlinedIcon />,
             [])]),
-    new DSPage("Noutati",
-        "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-        <FeedOutlinedIcon />,
-        [])
 ]
 
 export const bottomSitePages: DSPage[] = [
     new DSPage("Contact",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-        <AlternateEmailOutlinedIcon  />,
+        <AlternateEmailOutlinedIcon />,
         [new DSPage("Email",
             "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
             <EmailOutlinedIcon />,
