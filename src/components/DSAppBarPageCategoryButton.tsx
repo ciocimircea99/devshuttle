@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import { DSPage } from './../model/DSPage';
-import { Button, Menu, MenuItem, Slide } from '@mui/material';
+import { Button, Menu, MenuItem } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 

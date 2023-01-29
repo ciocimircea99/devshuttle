@@ -3,6 +3,7 @@ import './App.css';
 
 import DSDrawer from './components/DSDrawer';
 import DSAppBar from './components/DSAppBar';
+import DSPictureSlideCarousel from './components/DSPictureSliderCarousel';
 
 function DSApp() {
 
@@ -32,6 +33,11 @@ function DSApp() {
         drawerOpen={state.drawerOpen}
         toggleDrawer={toggleDrawer}
       />
+      <DSPictureSlideCarousel overlayedText='Welcome'/>
+      <DSPictureSlideCarousel overlayedText='Welcome'/>
+      <DSPictureSlideCarousel overlayedText='Welcome'/>
+      <DSPictureSlideCarousel overlayedText='Welcome'/>
+      <DSPictureSlideCarousel overlayedText='Welcome'/>
     </div>
   );
 }

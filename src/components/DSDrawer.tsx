@@ -13,6 +13,7 @@ import { DSPage, topSitePages } from '../model/DSPage';
 import { bottomSitePages } from './../model/DSPage';
 import { useTheme } from '@mui/material/styles';
 import { APP_BAR_HEIGHT_MD, APP_BAR_HEIGHT_SM } from './DSAppBar';
+import zIndex from '@mui/material/styles/zIndex';
 
 export const DRAWER_LEFT_PADDING_SM = '12px'
 export const DRAWER_LEFT_PADDING_MD = '20px'
@@ -89,7 +90,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
     <Drawer
       anchor='left'
       open={drawerOpen}
-      variant="persistent"
+      variant="temporary"
       onClick={toggleDrawer(false)}
       sx={{
         width: 'auto',
@@ -104,8 +105,9 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
           [theme.breakpoints.up('sm')]: {
             marginTop: APP_BAR_HEIGHT_MD
           },
-          backgroundColor: theme.palette.primary.main + '00'
+          backgroundColor: '#FFFFFF'//theme.palette.primary.main
         },
+        zIndex:5,
       }}
       onClose={toggleDrawer(false)}
     >
