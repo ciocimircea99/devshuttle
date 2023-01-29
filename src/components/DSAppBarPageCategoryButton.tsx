@@ -14,7 +14,6 @@ export default function DSAppBarPageCategoryButton({ page, ...props }: DSAppBarP
   const theme = useTheme()
 
   const buttonRef = React.useRef(null);
-
   const [menuWidth, setMenuWidth] = React.useState<string>('');
   React.useLayoutEffect(() => {
     if (buttonRef != null && buttonRef.current != null) {
@@ -23,7 +22,6 @@ export default function DSAppBarPageCategoryButton({ page, ...props }: DSAppBarP
   }, []);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -31,6 +29,14 @@ export default function DSAppBarPageCategoryButton({ page, ...props }: DSAppBarP
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleResize = () => {
+    setAnchorEl(null);
+  }
+  React.useEffect(() => {
+    window.addEventListener('resize', handleResize, false);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div>

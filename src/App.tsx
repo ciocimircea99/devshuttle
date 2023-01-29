@@ -7,6 +7,10 @@ import DSPictureSlideCarousel from './components/DSPictureSliderCarousel';
 
 function DSApp() {
 
+  const [state, setState] = React.useState({
+    drawerOpen: false,
+  });
+
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event.type === 'keydown' &&
@@ -15,13 +19,17 @@ function DSApp() {
     ) {
       return;
     }
-
     setState({ ...state, drawerOpen: open });
   };
 
-  const [state, setState] = React.useState({
-    drawerOpen: false,
-  });
+  const handleResize = () => {
+    setState({ ...state, drawerOpen: false });
+  }
+
+  React.useEffect(() => {
+    window.addEventListener('resize', handleResize, false);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div>
@@ -33,11 +41,11 @@ function DSApp() {
         drawerOpen={state.drawerOpen}
         toggleDrawer={toggleDrawer}
       />
-      <DSPictureSlideCarousel overlayedText='Welcome'/>
-      <DSPictureSlideCarousel overlayedText='Welcome'/>
-      <DSPictureSlideCarousel overlayedText='Welcome'/>
-      <DSPictureSlideCarousel overlayedText='Welcome'/>
-      <DSPictureSlideCarousel overlayedText='Welcome'/>
+      <DSPictureSlideCarousel overlayedText='Welcome' />
+      <DSPictureSlideCarousel overlayedText='Welcome' />
+      <DSPictureSlideCarousel overlayedText='Welcome' />
+      <DSPictureSlideCarousel overlayedText='Welcome' />
+      <DSPictureSlideCarousel overlayedText='Welcome' />
     </div>
   );
 }

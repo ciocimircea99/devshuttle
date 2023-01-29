@@ -91,6 +91,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
       anchor='left'
       open={drawerOpen}
       variant="temporary"
+      hideBackdrop
       onClick={toggleDrawer(false)}
       sx={{
         width: 'auto',
@@ -107,7 +108,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
           },
           backgroundColor: '#FFFFFF'//theme.palette.primary.main
         },
-        zIndex:5,
+        zIndex: 5,
       }}
       onClose={toggleDrawer(false)}
     >
