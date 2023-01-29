@@ -34,10 +34,18 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
         disablePadding
       >
         <ListItemButton>
-          <ListItemIcon>
+          <ListItemIcon sx={{
+            [theme.breakpoints.down('sm')]: {
+              paddingLeft: DRAWER_LEFT_PADDING_SM
+            },
+            [theme.breakpoints.up('sm')]: {
+              paddingLeft: DRAWER_LEFT_PADDING_MD
+            },
+            color: 'white'
+          }}>
             {page.iconComponent}
           </ListItemIcon>
-          <ListItemText
+          <ListItemText sx={{ color: 'white' }}
             primary={page.title}
           />
         </ListItemButton>
@@ -46,13 +54,21 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
         <ListItem
           key={page.title}
           disablePadding
-          sx={{ paddingLeft: theme.spacing(2) }}
         >
           <ListItemButton>
-            <ListItemIcon>
+            <ListItemIcon sx={{
+              [theme.breakpoints.down('sm')]: {
+                paddingLeft: DRAWER_LEFT_PADDING_SM
+              },
+              [theme.breakpoints.up('sm')]: {
+                paddingLeft: DRAWER_LEFT_PADDING_MD
+              },
+              color: 'white',
+              marginLeft: theme.spacing(2)
+            }}>
               {page.iconComponent}
             </ListItemIcon>
-            <ListItemText
+            <ListItemText sx={{ color: 'white' }}
               primary={page.title}
             />
           </ListItemButton>
@@ -63,15 +79,6 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
 
   const drawerMenu = () => (
     <Box
-      sx={{
-        width: 'auto',
-        [theme.breakpoints.down('sm')]: {
-          paddingLeft: DRAWER_LEFT_PADDING_SM
-        },
-        [theme.breakpoints.up('sm')]: {
-          paddingLeft: DRAWER_LEFT_PADDING_MD
-        },
-      }}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
@@ -106,7 +113,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
           [theme.breakpoints.up('sm')]: {
             marginTop: APP_BAR_HEIGHT_MD
           },
-          backgroundColor: '#FFFFFF'//theme.palette.primary.main
+          backgroundColor: theme.palette.primary.main
         },
         zIndex: 5,
       }}
