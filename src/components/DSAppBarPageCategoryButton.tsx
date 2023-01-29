@@ -15,11 +15,11 @@ export default function DSAppBarPageCategoryButton({ page, ...props }: DSAppBarP
 
   const buttonRef = React.useRef(null);
   const [menuWidth, setMenuWidth] = React.useState<string>('');
-  React.useLayoutEffect(() => {
+  const setCategoryButtonMenuWidth = () => {
     if (buttonRef != null && buttonRef.current != null) {
       setMenuWidth(buttonRef.current['offsetWidth'] + 'px');
     }
-  }, []);
+  }
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -31,9 +31,12 @@ export default function DSAppBarPageCategoryButton({ page, ...props }: DSAppBarP
   };
 
   const handleResize = () => {
+    setCategoryButtonMenuWidth()
     setAnchorEl(null);
   }
+
   React.useEffect(() => {
+    setCategoryButtonMenuWidth()
     window.addEventListener('resize', handleResize, false);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
