@@ -13,7 +13,6 @@ import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
-
 export class DSPage {
     title: string;
     iconComponent: any | null;
@@ -75,16 +74,16 @@ export const bottomSitePages: DSPage[] = [
             "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
             <FacebookOutlinedIcon />,
             []),
-        new DSPage("Phone",
+        new DSPage("Telefon",
             "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
             <LocalPhoneOutlinedIcon />,
             []),
-        new DSPage("Location",
+        new DSPage("Locatie",
             "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
             <FmdGoodOutlinedIcon />,
             [])
         ]),
-    new DSPage("Rate us",
+    new DSPage("Lasa-ne un review!",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <StarOutlinedIcon />,
         [])

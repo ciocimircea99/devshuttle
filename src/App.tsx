@@ -1,22 +1,19 @@
 import * as React from 'react';
 import './App.css';
+import { Stack } from '@mui/material';
 
-import DSDrawer from './components/DSDrawer';
-import DSAppBar from './components/DSAppBar';
-import DSPictureSlideCarousel from './components/DSPictureSliderCarousel';
+import DSPictureSliderCarousel from './components/DSPictureSliderCarousel';
 import DSScaffold from './components/DSScaffold';
 
+
+//Navigation will be here
 function DSApp() {
 
   return (
-    <div>
-      <DSScaffold/>
-      <DSPictureSlideCarousel overlayedText='Welcome' />
-      <DSPictureSlideCarousel overlayedText='Welcome' />
-      <DSPictureSlideCarousel overlayedText='Welcome' />
-      <DSPictureSlideCarousel overlayedText='Welcome' />
-      <DSPictureSlideCarousel overlayedText='Welcome' />
-    </div>
+    <Stack>
+      <DSScaffold />
+      <DSPictureSliderCarousel overlayedText="Let's have some fun!" />
+    </Stack>
   );
 }
 

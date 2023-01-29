@@ -1,17 +1,23 @@
 import * as React from 'react';
-import { useTheme, SxProps } from '@mui/material/styles';
-import { Box, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { Box, Typography, styled } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import { genPhotoArray } from '../model/DSPhoto';
 
-interface DSPictureSlideCarouselProps {
+interface DSPictureSliderCarouselProps {
     overlayedText: string
 }
 
-export default function DSPictureSlideCarousel({ overlayedText, ...props }: DSPictureSlideCarouselProps) {
+export default function DSPictureSliderCarousel({ overlayedText, ...props }: DSPictureSliderCarouselProps) {
 
     const theme = useTheme()
-    const photoArray = genPhotoArray(10)
+
+    const SliderImage = styled('img')({
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        style: 'width: 100%; height: 100%; object-fit: cover;',
+    });
 
     return (
         <Box sx={{
@@ -30,16 +36,8 @@ export default function DSPictureSlideCarousel({ overlayedText, ...props }: DSPi
                 indicators={false}
                 navButtonsAlwaysVisible={false}
             >
-                {photoArray.map((src: string) => (
-                    <Box
-                        sx={{
-                            position: 'absolute',
-                            width: 'auto',
-                            height: '100%',
-                            top: 0
-                        }}>
-                        <img src={src} />
-                    </Box>
+                {genPhotoArray(2).map((src: string) => (
+                    <SliderImage src={src}></SliderImage>
                 ))}
             </Carousel>
             <Box sx={{
