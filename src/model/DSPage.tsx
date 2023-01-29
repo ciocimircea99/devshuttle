@@ -45,7 +45,7 @@ export const topSitePages: DSPage[] = [
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <Groups2OutlinedIcon />,
         []),
-    new DSPage("Preturi si Servicii",
+    new DSPage("Servicii",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <LocalOfferOutlinedIcon />,
         [new DSPage("Gaming",
