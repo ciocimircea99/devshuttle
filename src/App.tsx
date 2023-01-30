@@ -18,10 +18,10 @@ function DSApp() {
     <Stack>
       <DSScaffold />
       <DSPictureSliderCarousel overlayedText="Let's have some fun!" />
-      <DSPageContent containerSx={{ marginTop: '-50px', zIndex: 5, paddingX: theme.spacing(4) }}>
+      <DSPageContent>
         <DSOfferGrid />
       </DSPageContent>
-      {/* <OfferGrid/>
+      {/*
       <FaqsAccordion/>
       <Statistics/>
       <Reviews/>
