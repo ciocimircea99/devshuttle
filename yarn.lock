@@ -2254,13 +2254,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-imgix@^9.5.0":
-  version "9.5.0"
-  resolved "https://registry.npmjs.org/@types/react-imgix/-/react-imgix-9.5.0.tgz"
-  integrity sha512-QNtxzFd9PEr5dyWcs1TWW4kRfGTvUAJ4Lb/OfAX9ZHVCFAimXSFgTVJU4zDAoMEH3lz+lqHP8FszqTn9X7HNYQ==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-is@^16.7.1 || ^17.0.0":
   version "17.0.3"
   resolved "https://registry.npmjs.org/@types/react-is/-/react-is-17.0.3.tgz"

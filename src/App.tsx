@@ -8,6 +8,7 @@ import DSPageContent from './components/DSPageContent';
 import DSOfferGrid from './components/DSOfferGrid';
 import DSFaqsAccordion from './components/DSFaqsAccordion';
 import { useTheme } from '@mui/material/styles';
+import DSStatistics from './components/DSStatistics';
 
 
 //Navigation will be here
@@ -22,9 +23,9 @@ function DSApp() {
       <DSPageContent>
         <DSOfferGrid />
         <DSFaqsAccordion />
+        <DSStatistics />
       </DSPageContent>
       {/*
-      <Statistics/>
       <Reviews/>
       <PartnersSlider/>
       <Footer/> */}

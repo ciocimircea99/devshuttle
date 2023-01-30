@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -13,7 +12,6 @@ import { DSPage, topSitePages } from '../model/DSPage';
 import { bottomSitePages } from './../model/DSPage';
 import { useTheme } from '@mui/material/styles';
 import { APP_BAR_HEIGHT_MD, APP_BAR_HEIGHT_SM } from './DSAppBar';
-import zIndex from '@mui/material/styles/zIndex';
 
 export const DRAWER_LEFT_PADDING_SM = '12px'
 export const DRAWER_LEFT_PADDING_MD = '20px'

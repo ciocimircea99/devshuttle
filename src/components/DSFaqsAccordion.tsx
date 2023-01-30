@@ -7,8 +7,6 @@ import {
     AccordionSummary,
     AccordionDetails
 } from '@mui/material';
-import { DSOffer, offer } from '../model/DSOffer';
-import DSOfferItem from './DSOfferItem';
 import { DSFaq, homeFaqs } from '../model/DSFaq';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
@@ -22,7 +20,7 @@ export default function DSFaqsAccordion({ ...props }: DSFaqsAccordionProps) {
 
     return (
         <Stack>
-            <Typography variant='h4'
+            <Typography variant='h5'
                 sx={{
                     marginBottom: theme.spacing(2),
                     flexGrow: 1,

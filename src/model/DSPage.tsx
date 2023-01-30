@@ -1,10 +1,10 @@
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
 import WineBarOutlinedIcon from '@mui/icons-material/WineBarOutlined';
 import LocalActivityOutlinedIcon from '@mui/icons-material/LocalActivityOutlined';
-import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
