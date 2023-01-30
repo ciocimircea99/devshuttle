@@ -15,14 +15,14 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
 export class DSPage {
     title: string;
-    iconComponent: any | null;
+    iconComponent: React.ReactNode | null;
     iconUrl: string;
     subpages: DSPage[];
 
     constructor(
         title: string,
         iconUrl: string,
-        iconComponent: any | null,
+        iconComponent: React.ReactNode | null,
         subpages: DSPage[],
     ) {
         this.title = title
@@ -48,18 +48,20 @@ export const topSitePages: DSPage[] = [
     new DSPage("Servicii",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <LocalOfferOutlinedIcon />,
-        [new DSPage("Gaming",
-            "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-            <SportsEsportsOutlinedIcon />,
-            []),
-        new DSPage("Terasa",
-            "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-            <WineBarOutlinedIcon />,
-            []),
-        new DSPage("Evenimente",
-            "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-            <LocalActivityOutlinedIcon />,
-            [])]),
+        [
+            new DSPage("Terasa",
+                "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+                <WineBarOutlinedIcon />,
+                []),
+            new DSPage("Gaming",
+                "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+                <SportsEsportsOutlinedIcon />,
+                []), 
+            new DSPage("Evenimente",
+                "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+                <LocalActivityOutlinedIcon />,
+                [])
+        ]),
 ]
 
 export const bottomSitePages: DSPage[] = [

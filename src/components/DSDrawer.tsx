@@ -115,7 +115,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
           },
           backgroundColor: theme.palette.primary.main
         },
-        zIndex: 5,
+        zIndex: 10,
       }}
       onClose={toggleDrawer(false)}
     >
