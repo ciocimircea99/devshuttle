@@ -1,11 +1,7 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import {
-    Grid,
-    Typography,
-    styled,
-    Container,
-    Stack
+    Grid
 } from '@mui/material';
 import { DSOffer, offer } from '../model/DSOffer';
 import DSOfferItem from './DSOfferItem';

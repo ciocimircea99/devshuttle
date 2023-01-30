@@ -6,6 +6,7 @@ import DSPictureSliderCarousel from './components/DSPictureSliderCarousel';
 import DSScaffold from './components/DSScaffold';
 import DSPageContent from './components/DSPageContent';
 import DSOfferGrid from './components/DSOfferGrid';
+import DSFaqsAccordion from './components/DSFaqsAccordion';
 import { useTheme } from '@mui/material/styles';
 
 
@@ -20,9 +21,9 @@ function DSApp() {
       <DSPictureSliderCarousel overlayedText="Let's have some fun!" />
       <DSPageContent>
         <DSOfferGrid />
+        <DSFaqsAccordion />
       </DSPageContent>
       {/*
-      <FaqsAccordion/>
       <Statistics/>
       <Reviews/>
       <PartnersSlider/>

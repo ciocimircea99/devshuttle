@@ -27,7 +27,7 @@ export default function DSPageContent({ children, ...props }: DSPageContentProps
                 zIndex: 5,
                 paddingX: theme.spacing(4)
             }}>
-                <Stack>
+                <Stack spacing={4}>
                     {children}
                 </Stack>
             </Container>
