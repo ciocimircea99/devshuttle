@@ -2,15 +2,23 @@ import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Box, Typography, styled } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
-import { genPhotoArray } from '../model/DSPhoto';
 
 interface DSPictureSliderCarouselProps {
     overlayedText: string
+    useColorOverlay: boolean
+    pictures: string[]
 }
 
-export default function DSPictureSliderCarousel({ overlayedText, ...props }: DSPictureSliderCarouselProps) {
+export default function DSPictureSliderCarousel({ overlayedText, useColorOverlay, pictures, ...props }: DSPictureSliderCarouselProps) {
 
     const theme = useTheme()
+    const colorOverlayProperty = (useColorOverlay: boolean) => {
+        if (useColorOverlay) {
+            return theme.palette.primary.main + '88'
+        } else {
+            return theme.palette.primary.main + '00'
+        }
+    }
 
     const SliderImage = styled('img')({
         position: 'absolute',
@@ -36,7 +44,7 @@ export default function DSPictureSliderCarousel({ overlayedText, ...props }: DSP
                 indicators={false}
                 navButtonsAlwaysVisible={false}
             >
-                {genPhotoArray(2).map((src: string) => (
+                {pictures.map((src: string) => (
                     <SliderImage src={src}></SliderImage>
                 ))}
             </Carousel>
@@ -47,7 +55,7 @@ export default function DSPictureSliderCarousel({ overlayedText, ...props }: DSP
                 top: 0,
                 zIndex: 1,
                 pointerEvents: 'none',
-                background: theme.palette.primary.main + '88',
+                background: colorOverlayProperty(useColorOverlay),
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center'

@@ -9,6 +9,7 @@ import DSOfferGrid from './components/DSOfferGrid';
 import DSFaqsAccordion from './components/DSFaqsAccordion';
 import { useTheme } from '@mui/material/styles';
 import DSStatistics from './components/DSStatistics';
+import { genPartnersPhotoArray, genPhotoArray } from './model/DSPhoto';
 
 
 //Navigation will be here
@@ -19,11 +20,22 @@ function DSApp() {
   return (
     <Stack>
       <DSScaffold />
-      <DSPictureSliderCarousel overlayedText="Let's have some fun!" />
+      <DSPictureSliderCarousel
+        overlayedText="Let's have some fun!"
+        useColorOverlay={true}
+        pictures={genPhotoArray(2)}
+      />
       <DSPageContent>
         <DSOfferGrid />
         <DSFaqsAccordion />
         <DSStatistics />
+        {/* <DSPhotoGallery />
+        <DSPartners/>  */}
+        <DSPictureSliderCarousel
+          overlayedText=''
+          useColorOverlay={false}
+          pictures={genPartnersPhotoArray()}
+        />
       </DSPageContent>
       {/*
       <Reviews/>

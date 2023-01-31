@@ -9,3 +9,15 @@ export function genPhotoArray(photoNumber: number): string[] {
     }
     return result
 }
+
+export function genPartnersPhotoArray(): string[] {
+    let result: string[] = []
+    result.push('https://exploregamingpub.ro/wp-content/uploads/2023/01/2.png')
+    result.push('https://exploregamingpub.ro/wp-content/uploads/2023/01/1.png')
+    result.push('https://exploregamingpub.ro/wp-content/uploads/2023/01/Lays-Logo.png')
+    result.push('https://exploregamingpub.ro/wp-content/uploads/2023/01/Heineken_logo.svg.png')
+    result.push('https://exploregamingpub.ro/wp-content/uploads/2023/01/4.png')
+    result.push('https://exploregamingpub.ro/wp-content/uploads/2023/01/3.png')
+    result.push('https://exploregamingpub.ro/wp-content/uploads/2023/01/ASUS-Logo.png')
+    return result
+}
