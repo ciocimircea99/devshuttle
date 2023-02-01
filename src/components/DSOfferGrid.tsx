@@ -3,7 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import {
     Grid
 } from '@mui/material';
-import { DSOffer, offer } from '../model/DSOffer';
+import { DSOffer } from '../model/DSOffer';
 import DSOfferItem from './DSOfferItem';
 
 interface DSOfferGridProps {
@@ -30,10 +30,7 @@ export default function DSOfferGrid({ offer, ...props }: DSOfferGridProps) {
                             flexDirection: 'row',
                             justifyContent: 'center'
                         }}
-                        visualComponent={offer.iconComponent}
-                        title={offer.title}
-                        description={offer.description}
-                        detailsRoute={'offer' + offer.title + 'route'}
+                        offer={offer}
                     />
                 </Grid>
 

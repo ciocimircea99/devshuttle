@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+import { SxProps, Theme, useTheme } from '@mui/material/styles';
 import {
     Stack,
     Typography,
@@ -11,10 +11,11 @@ import { statistics } from '../model/DSStatistic';
 interface DSPageSectionTitledProps {
     title: string,
     showPaper?: boolean | null;
+    paperSx?: SxProps<Theme>;
     children?: React.ReactNode;
 }
 
-export default function DSPageSectionTitled({ title, showPaper, children, ...props }: DSPageSectionTitledProps) {
+export default function DSPageSectionTitled({ title, showPaper, paperSx, children, ...props }: DSPageSectionTitledProps) {
 
     const theme = useTheme()
 
@@ -28,7 +29,7 @@ export default function DSPageSectionTitled({ title, showPaper, children, ...pro
                     flexGrow: 1,
                     textAlign: "center"
                 }}>{title}</Typography>
-            {paperVisible && <Paper elevation={3} sx={{ padding: theme.spacing(4) }}>
+            {paperVisible && <Paper elevation={3} sx={paperSx}>
                 {children}
             </Paper>
             }

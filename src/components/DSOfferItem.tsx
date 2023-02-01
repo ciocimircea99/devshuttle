@@ -8,23 +8,19 @@ import {
     Box,
     Divider
 } from '@mui/material';
+import { DSOffer } from '../model/DSOffer';
 
 interface DSOfferItemProps {
     paperSx: SxProps<Theme> | null,
     visualContainerSx: SxProps<Theme> | null,
-    visualComponent: React.ReactNode | null;
-    title: string | null,
-    description: string | null,
-    detailsRoute: string | null
+    offer: DSOffer
 }
 
 export default function DSOfferItem({
     paperSx,
     visualContainerSx,
-    visualComponent,
-    title,
-    description,
-    detailsRoute,
+    offer,
+
     ...props }: DSOfferItemProps) {
 
 
@@ -41,18 +37,18 @@ export default function DSOfferItem({
         >
             <Stack spacing={2}>
                 <Box sx={visualContainerSx}>
-                    {visualComponent}
+                    {offer.iconComponent}
                 </Box>
                 <Box sx={{ height: { xs: '80px', md: '80px' } }}>
-                    <Typography variant="h6" sx={{ textAlign: 'center' }}>{title}</Typography>
-                    <Typography variant="body1" sx={{ textAlign: 'center' }}>{description}</Typography>
+                    <Typography variant="h6" sx={{ textAlign: 'center' }}>{offer.title}</Typography>
+                    <Typography variant="body1" sx={{ textAlign: 'center' }}>{offer.description}</Typography>
                 </Box>
                 <Divider sx={{ backgroundColor: theme.palette.grey[700] }} />
                 <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
                     <Button variant="contained"
                         sx={{ textAlign: 'center', width: '50%' }}
-                        onClick={() => navigateTo(detailsRoute ? detailsRoute : '')}
-                    >Detalii</Button>
+                        onClick={() => navigateTo(offer.description)}
+                    >{offer.actionTitle}</Button>
                 </Box>
             </Stack>
         </Paper>

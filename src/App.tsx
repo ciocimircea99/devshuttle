@@ -13,13 +13,15 @@ import DSReviews from './components/DSReviews';
 import DSPageSectionTitled from './components/DSPageSectionTitled';
 import DSPageSection from './components/DSPageSection';
 import DSPartnersCarousel from './components/DSPartnersCarousel';
+import DSStatistics from './components/DSStatistics';
+import DSGallery from './components/DSGallery';
 
 import { genPhotoArray, genPartnersPhotoArray, genGalleryPictures } from './model/DSPhoto';
 import { faqs } from './model/DSFaq';
 import { offer } from './model/DSOffer';
 import { reviews } from './model/DSReview';
 import { statistics } from './model/DSStatistic';
-import DSStatistics from './components/DSStatistics';
+
 
 
 
@@ -58,7 +60,8 @@ function DSApp() {
           <DSOfferGrid offer={dsoffer} />
         </DSPageSectionTitled>
 
-        <DSPageSectionTitled title="Galerie">
+        <DSPageSectionTitled title="Galerie" showPaper={true} paperSx={{ padding: '0' }}>
+          <DSGallery pictures={dsgallery} />
         </DSPageSectionTitled>
 
         <DSPageSectionTitled title="Ce spun clientii nostri?" showPaper={false}>
