@@ -11,15 +11,13 @@ interface DSStatisticItemProps {
     label: string,
     maxValue: number,
     visualComponent: React.ReactNode | null
+    step: number
 }
 
-export default function DSStatisticItem({ label, maxValue, visualComponent, ...props }: DSStatisticItemProps) {
+export default function DSStatisticItem({ label, maxValue, visualComponent, step, ...props }: DSStatisticItemProps) {
     const [progress, setProgress] = React.useState(0);
     const [labelValue, setLabelValue] = React.useState(0);
     const [textLabelVisibility, setTextLabelVisibility] = React.useState(false);
-
-    const animationDuration = 1000
-    const step = Math.max((maxValue / animationDuration + 1), 1)
 
     React.useEffect(() => {
         const timer = setInterval(() => {
@@ -32,7 +30,7 @@ export default function DSStatisticItem({ label, maxValue, visualComponent, ...p
                 setProgress(newLabelValue * 100 / maxValue)
                 return newLabelValue
             });
-        }, (animationDuration / maxValue));
+        }, 50);
 
         return () => {
             clearInterval(timer);
