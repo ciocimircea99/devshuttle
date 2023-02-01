@@ -7,8 +7,9 @@ import DSScaffold from './components/DSScaffold';
 import DSPageContent from './components/DSPageContent';
 import DSOfferGrid from './components/DSOfferGrid';
 import DSFaqsAccordion from './components/DSFaqsAccordion';
-import { useTheme } from '@mui/material/styles';
 import DSStatistics from './components/DSStatistics';
+import DSPartnersCarousel from './components/DSPartnersCarousel';
+import { useTheme } from '@mui/material/styles';
 import { genPartnersPhotoArray, genPhotoArray } from './model/DSPhoto';
 
 
@@ -31,11 +32,8 @@ function DSApp() {
         <DSStatistics />
         {/* <DSPhotoGallery />
         <DSPartners/>  */}
-        <DSPictureSliderCarousel
-          overlayedText=''
-          useColorOverlay={false}
-          pictures={genPartnersPhotoArray()}
-        />
+        <DSPartnersCarousel
+          pictures={genPartnersPhotoArray()} />
       </DSPageContent>
       {/*
       <Reviews/>
