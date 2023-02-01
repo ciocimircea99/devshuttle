@@ -7,19 +7,19 @@ import { DSOffer, offer } from '../model/DSOffer';
 import DSOfferItem from './DSOfferItem';
 
 interface DSOfferGridProps {
+    offer: DSOffer[]
 }
 
-export default function DSOfferGrid({ ...props }: DSOfferGridProps) {
+export default function DSOfferGrid({ offer, ...props }: DSOfferGridProps) {
 
     const theme = useTheme()
-    const offerItems = offer
 
     return (
         <Grid
             container
             spacing={{ xs: 4, md: 4 }}
         >
-            {offerItems.map((offer: DSOffer, index: number) => (
+            {offer.map((offer: DSOffer, index: number) => (
                 <Grid item xs={12} sm={12} md={4} key={offer.title + index}>
                     <DSOfferItem
                         paperSx={{ padding: theme.spacing(2) }}

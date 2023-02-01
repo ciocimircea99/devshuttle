@@ -7,25 +7,19 @@ import {
     AccordionSummary,
     AccordionDetails
 } from '@mui/material';
-import { DSFaq, homeFaqs } from '../model/DSFaq';
+import { DSFaq } from '../model/DSFaq';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-interface DSFaqsSectionProps {
+interface DSFaqsAccordionProps {
+    faqs: DSFaq[]
 }
 
-export default function DSFaqsSection({ ...props }: DSFaqsSectionProps) {
+export default function DSFaqsAccordion({ faqs, ...props }: DSFaqsAccordionProps) {
 
     const theme = useTheme()
-    const faqs = homeFaqs
 
     return (
-        <Stack>
-            <Typography variant='h5'
-                sx={{
-                    marginBottom: theme.spacing(2),
-                    flexGrow: 1,
-                    textAlign: "center"
-                }}>Ce ar trebui sa stii?</Typography>
+        <div>
             {faqs.map((faq: DSFaq, index: number) => (
                 <Accordion>
                     <AccordionSummary
@@ -46,6 +40,6 @@ export default function DSFaqsSection({ ...props }: DSFaqsSectionProps) {
                     </AccordionDetails>
                 </Accordion>
             ))}
-        </Stack>
+        </div>
     )
 }

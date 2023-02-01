@@ -11,7 +11,7 @@ export class DSFaq {
     }
 }
 
-export const homeFaqs = [
+export const faqs = [
     new DSFaq('Ce este Explore Gaming Pub?',
         [
             'Este un loc dedicat tinerilor, perfect atât pentru grupuri cât și pentru „lupii singuratici”. Punem la dispoziție un spațiu generos format din 2 etaje de 400 metri pătrați și o terasă de peste 100 mp. Dorința noastră este să formăm o comunitate frumoasă și să creem cele mai bune condiții pentru ea. La ora actuală avem peste 10.000 de clienți care ne-au călcat pragul. Vino și tu!',
