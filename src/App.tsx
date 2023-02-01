@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
 
-import { Stack } from '@mui/material';
+import { Stack, Box, Fab, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 import DSPictureSliderCarousel from './components/DSPictureSliderCarousel';
@@ -23,8 +23,6 @@ import { reviews } from './model/DSReview';
 import { statistics } from './model/DSStatistic';
 
 
-
-
 //Navigation will be here
 function DSApp() {
 
@@ -40,43 +38,45 @@ function DSApp() {
 
 
   return (
-    <Stack>
-      <DSScaffold />
-      <DSPictureSliderCarousel
-        overlayedText="Let's have some fun!"
-        useColorOverlay={true}
-        pictures={backgroundPictures}
-      />
-      <DSPageContent>
-        <DSPageSection>
-          <DSStatistics statistics={dsstatistics} />
-        </DSPageSection>
+    <Box>
+      <Stack>
+        <DSScaffold />
+        <DSPictureSliderCarousel
+          overlayedText="Let's have some fun!"
+          useColorOverlay={true}
+          pictures={backgroundPictures}
+        />
+        <DSPageContent>
+          <DSPageSection>
+            <DSStatistics statistics={dsstatistics} />
+          </DSPageSection>
 
-        <DSPageSectionTitled title="Ce trebuie sa stii?" showPaper={false}>
-          <DSFaqsAccordion faqs={dsfaqs} />
-        </DSPageSectionTitled>
+          <DSPageSectionTitled title="Ce trebuie sa stii?" showPaper={false}>
+            <DSFaqsAccordion faqs={dsfaqs} />
+          </DSPageSectionTitled>
 
-        <DSPageSectionTitled title="Oferta noastra" showPaper={false}>
-          <DSOfferGrid offer={dsoffer} />
-        </DSPageSectionTitled>
+          <DSPageSectionTitled title="Oferta noastra" showPaper={false}>
+            <DSOfferGrid offer={dsoffer} />
+          </DSPageSectionTitled>
 
-        <DSPageSectionTitled title="Galerie" showPaper={true} paperSx={{ padding: '0' }}>
-          <DSGallery pictures={dsgallery} />
-        </DSPageSectionTitled>
+          <DSPageSectionTitled title="Galerie" showPaper={true} paperSx={{ padding: '0' }}>
+            <DSGallery pictures={dsgallery} />
+          </DSPageSectionTitled>
 
-        <DSPageSectionTitled title="Ce spun clientii nostri?" showPaper={false}>
-          <DSReviews reviews={dsreviews} />
-        </DSPageSectionTitled>
+          <DSPageSectionTitled title="Ce spun clientii nostri?" showPaper={false}>
+            <DSReviews reviews={dsreviews} />
+          </DSPageSectionTitled>
 
-        <DSPageSectionTitled title="Partenerii nostri">
-          <DSPartnersCarousel pictures={partnerPictures} />
-        </DSPageSectionTitled>
-      </DSPageContent>
-      {/*
+          <DSPageSectionTitled title="Partenerii nostri">
+            <DSPartnersCarousel pictures={partnerPictures} />
+          </DSPageSectionTitled>
+        </DSPageContent>
+        {/*
       <Reviews/>
       <PartnersSlider/>
       <Footer/> */}
-    </Stack>
+      </Stack>
+    </Box>
   );
 }
 
