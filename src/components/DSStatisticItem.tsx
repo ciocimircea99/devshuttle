@@ -7,13 +7,13 @@ import {
     Fade,
 } from '@mui/material';
 
-interface DSStatisticsItemProps {
+interface DSStatisticItemProps {
     label: string,
     maxValue: number,
     visualComponent: React.ReactNode | null
 }
 
-export default function DSStatisticsItem({ label, maxValue, visualComponent, ...props }: DSStatisticsItemProps) {
+export default function DSStatisticItem({ label, maxValue, visualComponent, ...props }: DSStatisticItemProps) {
     const [progress, setProgress] = React.useState(0);
     const [labelValue, setLabelValue] = React.useState(0);
     const [textLabelVisibility, setTextLabelVisibility] = React.useState(false);

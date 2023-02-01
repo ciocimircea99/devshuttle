@@ -10,10 +10,10 @@ import {
 import { DSFaq, homeFaqs } from '../model/DSFaq';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-interface DSFaqsAccordionProps {
+interface DSFaqsSectionProps {
 }
 
-export default function DSFaqsAccordion({ ...props }: DSFaqsAccordionProps) {
+export default function DSFaqsSection({ ...props }: DSFaqsSectionProps) {
 
     const theme = useTheme()
     const faqs = homeFaqs

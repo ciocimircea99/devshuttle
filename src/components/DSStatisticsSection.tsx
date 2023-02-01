@@ -6,14 +6,14 @@ import {
     Paper
 } from '@mui/material';
 import { statistics } from '../model/DSStatistic';
-import { DSStatistic } from './../model/DSStatistic';
-import DSStatisticsItem from './DSStatisticsItem';
+import { DSStatistic } from '../model/DSStatistic';
+import DSStatisticsItem from './DSStatisticItem';
 
 
-interface DSStatisticsProps {
+interface DSStatisticsSectionProps {
 }
 
-export default function DSStatistics({ ...props }: DSStatisticsProps) {
+export default function DSStatisticsSection({ ...props }: DSStatisticsSectionProps) {
 
     const theme = useTheme()
     const egpstatistic = statistics
