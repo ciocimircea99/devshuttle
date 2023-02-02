@@ -77,6 +77,9 @@ export const bottomSitePages: DSPage[] = [
                 <EmailOutlinedIcon />,
                 []),
         ]),
+];
+
+export const fastActions: DSPage[] = [
     new DSPage("Suna acum!",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <LocalPhoneOutlinedIcon />,
@@ -85,4 +88,4 @@ export const bottomSitePages: DSPage[] = [
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <FmdGoodOutlinedIcon />,
         []),
-];
+]

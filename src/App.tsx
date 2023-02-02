@@ -7,6 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import DSPictureSliderCarousel from './components/DSPictureSliderCarousel';
 import DSScaffold from './components/DSScaffold';
 import DSPageContent from './components/DSPageContent';
+import DSFooter from './components/DSFooter';
 
 import { genPhotoArray } from './model/DSPhoto';
 import HomePage from './site/HomePage';
@@ -29,9 +30,7 @@ function DSApp() {
         <DSPageContent>
           <HomePage />
         </DSPageContent>
-        {/*
-      <Reviews/>
-      <Footer/> */}
+        <DSFooter />
       </Stack>
     </Box>
   );
