@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 
+import DSPageContent from '../components/DSPageContent';
 import DSOfferGrid from '../components/DSOfferGrid';
 import DSFaqsAccordion from '../components/DSFaqsAccordion';
 import DSReviews from '../components/DSReviews';
@@ -28,7 +29,7 @@ export default function HomePage({ }) {
     const partnerPictures = genPartnersPhotoArray()
 
     return (
-        <div>
+        <DSPageContent topMargin='-50px'>
             <DSPageSection>
                 <DSStatistics statistics={dsstatistics} />
             </DSPageSection>
@@ -52,6 +53,6 @@ export default function HomePage({ }) {
             <DSPageSectionTitled title="Partenerii nostri">
                 <DSPartnersCarousel pictures={partnerPictures} />
             </DSPageSectionTitled>
-        </div>
+        </DSPageContent>
     )
 }

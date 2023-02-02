@@ -11,6 +11,7 @@ import DSFooter from './components/DSFooter';
 
 import { genPhotoArray } from './model/DSPhoto';
 import HomePage from './site/HomePage';
+import TeamPage from './site/TeamPage'
 
 //Navigation will be here
 function DSApp() {
@@ -27,9 +28,7 @@ function DSApp() {
           useColorOverlay={true}
           pictures={backgroundPictures}
         />
-        <DSPageContent>
-          <HomePage />
-        </DSPageContent>
+        <TeamPage />
         <DSFooter />
       </Stack>
     </Box>
