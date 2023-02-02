@@ -25,15 +25,15 @@ export const offer = [
     new DSOffer("Terasa",
         <WineBarOutlinedIcon sx={{ width: '64px', height: '64px', color: 'primary.main' }} />,
         'Terasa • Full Bar • Narghilea',
-        'Vezi meniul'),
+        'Meniu'),
     new DSOffer("Gaming",
         <SportsEsportsOutlinedIcon sx={{ width: '64px', height: '64px', color: 'primary.main' }} />,
         'PC • PS5 • PS4',
-        'Vezi preturile'),
+        'Preturi'),
     new DSOffer("Evenimente",
         <LocalActivityOutlinedIcon sx={{ width: '64px', height: '64px', color: 'primary.main' }} />,
         'eSports • Evenimente personale • Team Building Companii',
-        'Vezi oferta'
+        'Oferta'
     ),
 ]
 
