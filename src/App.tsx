@@ -24,7 +24,7 @@ function DSApp() {
       <Stack>
         <DSScaffold />
         <DSPictureSliderCarousel
-          overlayedText="Let's have some fun!"
+          overlayedText="Echipa noastra!"
           useColorOverlay={true}
           pictures={backgroundPictures}
         />
