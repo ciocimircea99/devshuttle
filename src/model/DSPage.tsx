@@ -10,7 +10,6 @@ import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlin
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
-import StarOutlinedIcon from '@mui/icons-material/StarOutlined';
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
 export class DSPage {
@@ -56,7 +55,7 @@ export const topSitePages: DSPage[] = [
             new DSPage("Gaming",
                 "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
                 <SportsEsportsOutlinedIcon />,
-                []), 
+                []),
             new DSPage("Evenimente",
                 "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
                 <LocalActivityOutlinedIcon />,
@@ -68,25 +67,22 @@ export const bottomSitePages: DSPage[] = [
     new DSPage("Contact",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <AlternateEmailOutlinedIcon />,
-        [new DSPage("Email",
-            "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-            <EmailOutlinedIcon />,
-            []),
-        new DSPage("Social",
-            "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-            <FacebookOutlinedIcon />,
-            []),
-        new DSPage("Telefon",
-            "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-            <LocalPhoneOutlinedIcon />,
-            []),
-        new DSPage("Locatie",
-            "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-            <FmdGoodOutlinedIcon />,
-            [])
+        [
+            new DSPage("Informatii",
+                "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+                <FacebookOutlinedIcon />,
+                []),
+            new DSPage("Email",
+                "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+                <EmailOutlinedIcon />,
+                []),
         ]),
-    new DSPage("Lasa-ne un review!",
+    new DSPage("Suna acum!",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
-        <StarOutlinedIcon />,
-        [])
+        <LocalPhoneOutlinedIcon />,
+        []),
+    new DSPage("Descarca locatia!",
+        "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+        <FmdGoodOutlinedIcon />,
+        []),
 ];

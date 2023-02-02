@@ -25,6 +25,7 @@ export default function DSPageSectionTitled({ title, showPaper, paperSx, childre
         <Stack>
             <Typography variant='h5'
                 sx={{
+                    marginTop: theme.spacing(4),
                     marginBottom: theme.spacing(2),
                     flexGrow: 1,
                     textAlign: "center"

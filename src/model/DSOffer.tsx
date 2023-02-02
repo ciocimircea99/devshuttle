@@ -33,7 +33,7 @@ export const offer = [
     new DSOffer("Evenimente",
         <LocalActivityOutlinedIcon sx={{ width: '64px', height: '64px', color: 'primary.main' }} />,
         'eSports • Evenimente personale • Team Building Companii',
-        'Oferta'
+        'Vezi oferta'
     ),
 ]
 
