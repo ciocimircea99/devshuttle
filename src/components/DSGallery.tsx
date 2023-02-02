@@ -12,7 +12,6 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import DSFullScreenPhotoCarousel from './DSFullScreenPhotoCarousel';
-import zIndex from '@mui/material/styles/zIndex';
 
 interface DSGalleryProps {
     pictures: string[],

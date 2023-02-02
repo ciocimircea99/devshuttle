@@ -1,6 +1,7 @@
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
+import CollectionsIcon from '@mui/icons-material/Collections';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined';
 import WineBarOutlinedIcon from '@mui/icons-material/WineBarOutlined';
@@ -43,6 +44,10 @@ export const topSitePages: DSPage[] = [
     new DSPage("Echipa",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <Groups2OutlinedIcon />,
+        []),
+    new DSPage("Galerie",
+        "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
+        <CollectionsIcon />,
         []),
     new DSPage("Servicii",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
