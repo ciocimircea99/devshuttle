@@ -35,23 +35,23 @@ export default function HomePage({ }) {
                 <DSStatistics statistics={dsstatistics} />
             </DSPageSection>
 
-            <DSPageSectionTitled title="Ce trebuie sa stii?" showPaper={false}>
+            <DSPageSectionTitled title="CE TREBUIE SA STII?" showPaper={false}>
                 <DSFaqsAccordion faqs={dsfaqs} />
             </DSPageSectionTitled>
 
-            <DSPageSectionTitled title="Oferta noastra" showPaper={false}>
+            <DSPageSectionTitled title="OFERTA NOASTRA" showPaper={false}>
                 <DSOfferGrid offer={dsoffer} />
             </DSPageSectionTitled>
 
-            <DSPageSectionTitled title="Galerie" showPaper={true} paperSx={{ padding: '0' }}>
+            <DSPageSectionTitled title="GALERIE" showPaper={true} paperSx={{ padding: '0' }}>
                 <DSScrollableGallery pictures={dsgallery} />
             </DSPageSectionTitled>
 
-            <DSPageSectionTitled title="Ce spun clientii nostri?" showPaper={false}>
+            <DSPageSectionTitled title="CE SPUN CLIENTII NOSTRI?" showPaper={false}>
                 <DSReviews reviews={dsreviews} />
             </DSPageSectionTitled>
 
-            <DSPageSectionTitled title="Partenerii nostri">
+            <DSPageSectionTitled title="PARTENERI">
                 <DSPartnersCarousel pictures={partnerPictures} />
             </DSPageSectionTitled>
         </DSPageContent>

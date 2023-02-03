@@ -26,23 +26,22 @@ function DSApp() {
         <Stack>
           <DSScaffold />
           <DSPictureSliderCarousel
-            overlayedText="Echipa noastra!"
+            overlayedText="LET'S HAVE SOME FUN!"
             useColorOverlay={true}
             pictures={backgroundPictures}
           />
-          <BrowserRouter>
-            <Routes>
-              <Route>
-                <Route path='/' element={<HomePage />}></Route>
-                <Route path='/team' element={<TeamPage />}></Route>
-                <Route path='/gallery' element={<GalleryPage />}></Route>
-              </Route>
-            </Routes>
-          </BrowserRouter>
+
+          <Routes>
+            <Route>
+              <Route path='/' element={<HomePage />}></Route>
+              <Route path='/team' element={<TeamPage />}></Route>
+              <Route path='/gallery' element={<GalleryPage />}></Route>
+            </Route>
+          </Routes>
+
           <DSFooter />
         </Stack>
       </Box>
-
     </div>
   );
 }

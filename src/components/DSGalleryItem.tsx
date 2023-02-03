@@ -30,7 +30,7 @@ export interface GalleryItemProps {
     pictures: string[]
 }
 
-export default function GalleryItem({ pictures, ...props }: GalleryItemProps) {
+export default function GalleryItem({ pictures,  ...props }: GalleryItemProps) {
 
     const theme = useTheme()
 
@@ -41,7 +41,7 @@ export default function GalleryItem({ pictures, ...props }: GalleryItemProps) {
 
     const SliderImage = styled('img')({
         height: '100%',
-        objectFit:'cover'
+        objectFit: 'cover'
     });
 
     const enterFullcreen = (index: number) => {
@@ -52,10 +52,10 @@ export default function GalleryItem({ pictures, ...props }: GalleryItemProps) {
     return (
         <Box sx={{
             height: '400px',
-            width: '400px',
+            width: '100%',
             position: 'relative',
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column',
         }}
         >
             <Box sx={{
@@ -64,7 +64,7 @@ export default function GalleryItem({ pictures, ...props }: GalleryItemProps) {
                 overflowY: 'auto',
                 padding: theme.spacing(2),
                 boxSizing: 'border-box',
-                display:'flex'
+                display: 'flex'
 
             }}>
                 <Swiper

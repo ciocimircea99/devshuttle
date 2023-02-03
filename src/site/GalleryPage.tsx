@@ -1,8 +1,10 @@
 import * as React from 'react';
 import DSPageSectionTitled from '../components/DSPageSectionTitled';
 import GalleryItem from '../components/DSGalleryItem';
+import DSPageContent from '../components/DSPageContent';
 import { genGalleryTerrace } from '../model/DSPhoto';
 import { genGalleryBauturi, genGalleryPC, genGalleryPS } from './../model/DSPhoto';
+
 
 export interface GalleryPageProps {
 }
@@ -10,7 +12,7 @@ export interface GalleryPageProps {
 export default function GalleryPage({ ...props }: GalleryPageProps) {
 
     return (
-        <div>
+        <DSPageContent topMargin='0px'>
             <DSPageSectionTitled title="TERASA RUSTICĂ - PERFECTĂ PENTRU O SEARĂ CU PRIETENII!">
                 <GalleryItem pictures={genGalleryTerrace()} />
             </DSPageSectionTitled>
@@ -23,6 +25,6 @@ export default function GalleryPage({ ...props }: GalleryPageProps) {
             <DSPageSectionTitled title="ZONELE EXCLUSIVE PENTRU JOACĂ!">
                 <GalleryItem pictures={genGalleryPS()} />
             </DSPageSectionTitled>
-        </div>
+        </DSPageContent>
     )
 }
