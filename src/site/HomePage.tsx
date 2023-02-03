@@ -9,13 +9,14 @@ import DSPageSectionTitled from '../components/DSPageSectionTitled';
 import DSPageSection from '../components/DSPageSection';
 import DSPartnersCarousel from '../components/DSPartnersCarousel';
 import DSStatistics from '../components/DSStatistics';
-import DSGallery from '../components/DSGallery';
+import DSScrollableGallery from '../components/DSImageListGallery';
 
 import { genPartnersPhotoArray, genGalleryPictures } from '../model/DSPhoto';
 import { faqs } from '../model/DSFaq';
 import { offer } from '../model/DSOffer';
 import { reviews } from '../model/DSReview';
 import { statistics } from '../model/DSStatistic';
+
 
 export default function HomePage({ }) {
 
@@ -43,7 +44,7 @@ export default function HomePage({ }) {
             </DSPageSectionTitled>
 
             <DSPageSectionTitled title="Galerie" showPaper={true} paperSx={{ padding: '0' }}>
-                <DSGallery pictures={dsgallery} />
+                <DSScrollableGallery pictures={dsgallery} />
             </DSPageSectionTitled>
 
             <DSPageSectionTitled title="Ce spun clientii nostri?" showPaper={false}>

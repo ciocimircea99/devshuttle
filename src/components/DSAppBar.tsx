@@ -16,6 +16,7 @@ import { bottomSitePages, topSitePages } from '../model/DSPage';
 import { DSPage } from '../model/DSPage';
 import { useTheme } from '@mui/material/styles';
 import DSAppBarPageCategoryButton from './DSAppBarPageCategoryButton';
+import { useNavigate } from 'react-router-dom';
 
 export const APP_BAR_HEIGHT_SM = '54px'
 export const APP_BAR_HEIGHT_MD = '64px'
@@ -28,6 +29,7 @@ interface DSAppBarProps {
 export default function DSAppBar({ drawerOpen, toggleDrawer, ...props }: DSAppBarProps) {
 
   const theme = useTheme()
+  const navigate = useNavigate()
 
   // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -45,9 +47,10 @@ export default function DSAppBar({ drawerOpen, toggleDrawer, ...props }: DSAppBa
         <Button
           key={page.title}
           sx={{ my: 2, color: 'white', display: 'block' }}
+          onClick={() => navigate(page.route)}
         >
           {page.title}
-        </Button>
+        </Button >
       )
     }
     else {

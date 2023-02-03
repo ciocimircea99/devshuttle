@@ -12,6 +12,7 @@ import { genPhotoArray } from './model/DSPhoto';
 import HomePage from './site/HomePage';
 import TeamPage from './site/TeamPage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import GalleryPage from './site/GalleryPage';
 
 //Navigation will be here
 function DSApp() {
@@ -34,6 +35,7 @@ function DSApp() {
               <Route>
                 <Route path='/' element={<HomePage />}></Route>
                 <Route path='/team' element={<TeamPage />}></Route>
+                <Route path='/gallery' element={<GalleryPage />}></Route>
               </Route>
             </Routes>
           </BrowserRouter>

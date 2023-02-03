@@ -15,19 +15,22 @@ import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
 
 export class DSPage {
     title: string;
+    iconURL: string;
     iconComponent: React.ReactNode | null;
-    iconUrl: string;
+    route: string;
     subpages: DSPage[];
 
     constructor(
         title: string,
-        iconUrl: string,
+        iconURL: string,
         iconComponent: React.ReactNode | null,
+        route: string,
         subpages: DSPage[],
     ) {
         this.title = title
-        this.iconUrl = iconUrl
+        this.iconURL = iconURL
         this.iconComponent = iconComponent
+        this.route = route
         this.subpages = subpages
     }
 }
@@ -36,34 +39,42 @@ export const topSitePages: DSPage[] = [
     new DSPage("Acasa",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <HomeOutlinedIcon />,
+        "/home",
         []),
     new DSPage("Noutati",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <FeedOutlinedIcon />,
+        "/home",
         []),
     new DSPage("Echipa",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <Groups2OutlinedIcon />,
+        "/team",
         []),
     new DSPage("Galerie",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <CollectionsIcon />,
+        "/gallery",
         []),
     new DSPage("Servicii",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <LocalOfferOutlinedIcon />,
+        "/home",
         [
             new DSPage("Terasa",
                 "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
                 <WineBarOutlinedIcon />,
+                "/home",
                 []),
             new DSPage("Gaming",
                 "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
                 <SportsEsportsOutlinedIcon />,
+                "/home",
                 []),
             new DSPage("Evenimente",
                 "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
                 <LocalActivityOutlinedIcon />,
+                "/home",
                 [])
         ]),
 ]
@@ -72,14 +83,17 @@ export const bottomSitePages: DSPage[] = [
     new DSPage("Contact",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <AlternateEmailOutlinedIcon />,
+        "/home",
         [
             new DSPage("Informatii",
                 "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
                 <FacebookOutlinedIcon />,
+                "/home",
                 []),
             new DSPage("Email",
                 "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
                 <EmailOutlinedIcon />,
+                "/home",
                 []),
         ]),
 ];
@@ -88,9 +102,11 @@ export const fastActions: DSPage[] = [
     new DSPage("Suna acum!",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <LocalPhoneOutlinedIcon />,
+        "/home",
         []),
     new DSPage("Descarca locatia!",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <FmdGoodOutlinedIcon />,
+        "/home",
         []),
 ]

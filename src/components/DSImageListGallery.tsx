@@ -13,11 +13,11 @@ import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import DSFullScreenPhotoCarousel from './DSFullScreenPhotoCarousel';
 
-interface DSGalleryProps {
+interface DSImageListGalleryProps {
     pictures: string[],
 }
 
-export default function DSGallery({ pictures, ...props }: DSGalleryProps) {
+export default function DSScrollableGallery({ pictures, ...props }: DSImageListGalleryProps) {
 
     const theme = useTheme()
 
