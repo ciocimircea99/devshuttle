@@ -11,6 +11,7 @@ import DSFooter from './components/DSFooter';
 import { genPhotoArray } from './model/DSPhoto';
 import HomePage from './site/HomePage';
 import TeamPage from './site/TeamPage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 //Navigation will be here
 function DSApp() {
@@ -19,18 +20,28 @@ function DSApp() {
   const backgroundPictures = genPhotoArray(2)
 
   return (
-    <Box>
-      <Stack>
-        <DSScaffold />
-        <DSPictureSliderCarousel
-          overlayedText="Echipa noastra!"
-          useColorOverlay={true}
-          pictures={backgroundPictures}
-        />
-        <HomePage />
-        <DSFooter />
-      </Stack>
-    </Box>
+    <div>
+      <Box>
+        <Stack>
+          <DSScaffold />
+          <DSPictureSliderCarousel
+            overlayedText="Echipa noastra!"
+            useColorOverlay={true}
+            pictures={backgroundPictures}
+          />
+          <BrowserRouter>
+            <Routes>
+              <Route>
+                <Route path='/' element={<HomePage />}></Route>
+                <Route path='/team' element={<TeamPage />}></Route>
+              </Route>
+            </Routes>
+          </BrowserRouter>
+          <DSFooter />
+        </Stack>
+      </Box>
+
+    </div>
   );
 }
 
