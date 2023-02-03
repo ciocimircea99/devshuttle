@@ -5,15 +5,15 @@ export default class DateUtils {
         return Date.now()
     }
     static getDateFromTimestamp(timestamp: number): string {
-        var timezone = new Date().getTimezoneOffset();
-        return new Date(timestamp, timezone).toDateString()
+        const date = new Date(timestamp)
+        return date.getUTCDate() + '-' + (date.getUTCMonth() + 1) + '-' + date.getUTCFullYear()
     }
     static getTimeStampFromDate(date: string): number {
         date.split("-");
         var newDate = new Date(
             Number.parseInt(date[2]),
-            Number.parseInt(date[1]),
-            Number.parseInt(date[0]));
+            Number.parseInt(date[1] + 1),
+            Number.parseInt(date[1]));
         return newDate.getTime()
     }
 }

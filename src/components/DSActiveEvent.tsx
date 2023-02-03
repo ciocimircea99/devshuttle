@@ -1,7 +1,8 @@
 import { Box, Button, Typography, styled, useTheme } from '@mui/material';
-import * as React from 'react';
 import { DSEvent } from './../model/DSEvent';
 import DateUtils from '../utilities/DateUtils';
+import { useNavigate } from 'react-router-dom';
+import { Description, ActiveEventImage } from '../components/CommonComponents'
 
 export interface ActiveEventProps {
     activeEvent: DSEvent
@@ -9,20 +10,9 @@ export interface ActiveEventProps {
 
 export default function ActiveEvent({ activeEvent, ...props }: ActiveEventProps) {
 
+    const navigate = useNavigate()
+
     const theme = useTheme()
-
-    const Image = styled('img')({
-        height: '100%',
-        width: '100%',
-        objectFit: 'scale-down',
-    });
-
-    const Description = styled('p')({
-        maxHeight: '120px',
-        overflowY: 'hidden',
-        fontSize: '12px',
-        paddingBottom: theme.spacing(1)
-    })
 
     const description = activeEvent.description
 
@@ -33,7 +23,7 @@ export default function ActiveEvent({ activeEvent, ...props }: ActiveEventProps)
                 flexDirection: 'column',
                 alignItems: 'center'
             }}>
-            <Typography variant='h6' sx={{ paddingBottom: theme.spacing(1) }}>EVENIMENT ACTIV</Typography>
+            <Typography variant='h5' sx={{ paddingBottom: theme.spacing(1) }}>EVENIMENT ACTIV</Typography>
             <Box
                 sx={{
                     display: 'flex',
@@ -55,7 +45,7 @@ export default function ActiveEvent({ activeEvent, ...props }: ActiveEventProps)
                             minWidth: "50%"
                         },
                     }}>
-                    <Image src={activeEvent.coverPhotoUrl} />
+                    <ActiveEventImage src={activeEvent.coverPhotoUrl} />
                 </Box>
                 <Box
                     sx={{
@@ -68,14 +58,20 @@ export default function ActiveEvent({ activeEvent, ...props }: ActiveEventProps)
                     }}>
                     <Typography
                         variant='body1'
-                        sx={{ paddingBottom: theme.spacing(1) }}
+                        sx={{ paddingBottom: theme.spacing(1), fontWeight:'bold'}}
                     >{activeEvent.title}</Typography>
                     <Typography
-                        variant='caption'
+                        variant='body2'
                         sx={{ paddingBottom: theme.spacing(1) }}
-                    >{DateUtils.getDateFromTimestamp(activeEvent.date)}</Typography>
+                    >{DateUtils.getDateFromTimestamp(activeEvent.date) + ' • ' + activeEvent.location}</Typography>
                     <Description dangerouslySetInnerHTML={{ __html: description }} />
-                    <Button sx={{ position: 'absolute', bottom: 16, right: 16 }}>Detalii</Button>
+                    <Button
+                        variant="contained"
+                        sx={{
+                            position: 'absolute',
+                            bottom: 0,
+                            right: 0,
+                        }}>Detalii</Button>
                 </Box>
             </Box>
         </Box >

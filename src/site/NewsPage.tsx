@@ -12,19 +12,16 @@ export interface NewsPageProps {
 
 export default function NewsPage({ ...props }: NewsPageProps) {
     const dsevents = events
-    
+
     const activeEvent = dsevents[0]
 
     return (
         <DSPageContent topMargin='-50px'>
             <DSPageSection>
-                <DSActiveEvent activeEvent={activeEvent}/>
+                <DSActiveEvent activeEvent={activeEvent} />
             </DSPageSection>
-            <DSPageSectionTitled title={'EVENIMENTE'}>
-                <DSEvents />
-            </DSPageSectionTitled>
-            <DSPageSectionTitled title={'NOUTATI'}>
-                <DSNews />
+            <DSPageSectionTitled title="EVENIMENTE" showPaper={false}>
+                <DSEvents events={dsevents} />
             </DSPageSectionTitled>
         </DSPageContent>
     )
