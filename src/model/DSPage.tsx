@@ -44,7 +44,7 @@ export const topSitePages: DSPage[] = [
     new DSPage("Noutati",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",
         <FeedOutlinedIcon />,
-        "/",
+        "/news",
         []),
     new DSPage("Echipa",
         "https://cdn-icons-png.flaticon.com/512/1946/1946488.png",

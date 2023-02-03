@@ -16,10 +16,10 @@ export default function HomePage({ }) {
 
     return (
         <DSPageContent topMargin='0px'>
-            <DSPageSectionTitled title="Vino sa-i cunosti!" showPaper={false}>
+            <DSPageSectionTitled title="VINO SA-I CUNOSTI!" showPaper={false}>
                 <DSTeamMembers teamMembers={dsmembers} />
             </DSPageSectionTitled>
-            <DSPageSectionTitled title="Membri cu care ne mandrim!" showPaper={false}>
+            <DSPageSectionTitled title="MEMBRI CU CARE NE MANDRIM" showPaper={false}>
                 <DSTeamMembers teamMembers={dshonorable} />
             </DSPageSectionTitled>
         </DSPageContent>
