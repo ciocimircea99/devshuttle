@@ -12,6 +12,7 @@ import { DSPage, topSitePages } from '../model/DSPage';
 import { bottomSitePages } from './../model/DSPage';
 import { useTheme } from '@mui/material/styles';
 import { APP_BAR_HEIGHT_MD, APP_BAR_HEIGHT_SM } from './DSAppBar';
+import { useNavigate } from 'react-router-dom';
 
 export const DRAWER_LEFT_PADDING_SM = '12px'
 export const DRAWER_LEFT_PADDING_MD = '20px'
@@ -24,6 +25,7 @@ interface DSDrawerProps {
 export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawerProps) {
 
   const theme = useTheme()
+  const navigate = useNavigate()
 
   const renderPageEntry = (page: DSPage) => (
     <div>
@@ -31,7 +33,7 @@ export default function DSDrawer({ drawerOpen, toggleDrawer, ...props }: DSDrawe
         key={page.title}
         disablePadding
       >
-        <ListItemButton>
+        <ListItemButton onClick={() => navigate(page.route)}>
           <ListItemIcon sx={{
             [theme.breakpoints.down('sm')]: {
               paddingLeft: DRAWER_LEFT_PADDING_SM

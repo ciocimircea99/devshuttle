@@ -37,20 +37,20 @@ export default function ActiveEvent({ activeEvent, ...props }: ActiveEventProps)
             <Box
                 sx={{
                     display: 'flex',
-                    [theme.breakpoints.down('sm')]: {
+                    [theme.breakpoints.down('md')]: {
                         flexDirection: 'column',
 
                     },
-                    [theme.breakpoints.up('sm')]: {
+                    [theme.breakpoints.up('md')]: {
                         flexDirection: 'row',
                     }
                 }}>
                 <Box
                     sx={{
-                        [theme.breakpoints.down('sm')]: {
+                        [theme.breakpoints.down('md')]: {
                             width: '100%',
                         },
-                        [theme.breakpoints.up('sm')]: {
+                        [theme.breakpoints.up('md')]: {
                             width: '50%',
                             minWidth: "50%"
                         },
