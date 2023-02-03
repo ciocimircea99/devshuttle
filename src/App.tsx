@@ -6,7 +6,6 @@ import { useTheme } from '@mui/material/styles';
 
 import DSPictureSliderCarousel from './components/DSPictureSliderCarousel';
 import DSScaffold from './components/DSScaffold';
-import DSPageContent from './components/DSPageContent';
 import DSFooter from './components/DSFooter';
 
 import { genPhotoArray } from './model/DSPhoto';
@@ -28,7 +27,7 @@ function DSApp() {
           useColorOverlay={true}
           pictures={backgroundPictures}
         />
-        <TeamPage />
+        <HomePage />
         <DSFooter />
       </Stack>
     </Box>
