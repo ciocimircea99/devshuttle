@@ -20,6 +20,8 @@ interface DSPartnersCarouselProps {
     pictures: string[]
 }
 
+const PARTNER_IMAGE_SIZE=150
+
 export default function DSPartnersCarousel({ pictures, ...props }: DSPartnersCarouselProps) {
 
     const theme = useTheme()
@@ -32,8 +34,8 @@ export default function DSPartnersCarousel({ pictures, ...props }: DSPartnersCar
 
     const computeWidthDynamics = (width: number | undefined) => {
         if (width !== undefined) {
-            const slidesPerView = Math.min(Math.floor(width / 200), pictures.length - 1)
-            const slidesWidth = slidesPerView * 200
+            const slidesPerView = Math.min(Math.floor(width / PARTNER_IMAGE_SIZE), pictures.length - 1)
+            const slidesWidth = slidesPerView * PARTNER_IMAGE_SIZE
             const undistributedWidth = width - slidesWidth
 
             let swipperPadding = Math.floor(undistributedWidth / 2) + 1
@@ -50,7 +52,6 @@ export default function DSPartnersCarousel({ pictures, ...props }: DSPartnersCar
         const parentElement = mainContainerRef.current?.parentElement
         if (parentElement) {
             computeWidthDynamics(mainContainerRef.current?.parentElement?.offsetWidth)
-            computeWidthDynamics(window.innerWidth)
         }
     }
 
@@ -65,7 +66,6 @@ export default function DSPartnersCarousel({ pictures, ...props }: DSPartnersCar
     const SliderImage = styled('img')({
         height: 'auto',
         objectFit: 'scale-down',
-        padding: theme.spacing(2)
     });
 
     return (
@@ -106,14 +106,12 @@ export default function DSPartnersCarousel({ pictures, ...props }: DSPartnersCar
                             <SwiperSlide>
                                 <Box
                                     sx={{
-                                        width: 200,
-                                        height: 200,
+                                        width: PARTNER_IMAGE_SIZE,
+                                        height: PARTNER_IMAGE_SIZE,
                                         display: 'flex',
                                         flexDirection: 'column',
                                         justifyContent: 'center',
                                         backgroundColor: "#FFFFFF",
-                                        padding: theme.spacing(2),
-                                        boxSizing: 'border-box'
                                     }}
                                 >
                                     <SliderImage src={picture} />
