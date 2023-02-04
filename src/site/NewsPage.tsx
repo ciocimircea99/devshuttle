@@ -2,8 +2,7 @@ import * as React from 'react';
 import DSPageContent from '../components/DSPageContent';
 import DSPageSectionTitled from '../components/DSPageSectionTitled';
 import DSActiveEvent from '../components/DSActiveEvent';
-import DSNews from '../components/DSNews';
-import DSEvents from '../components/DSEvents';
+import DSEventsInfiniteScrollList from '../components/DSEventsInfiniteScrollList';
 import DSPageSection from '../components/DSPageSection';
 import { events } from '../model/DSEvent';
 
@@ -21,7 +20,7 @@ export default function NewsPage({ ...props }: NewsPageProps) {
                 <DSActiveEvent activeEvent={activeEvent} />
             </DSPageSection>
             <DSPageSectionTitled title="EVENIMENTE" showPaper={false}>
-                <DSEvents events={dsevents} />
+                <DSEventsInfiniteScrollList events={dsevents} />
             </DSPageSectionTitled>
         </DSPageContent>
     )

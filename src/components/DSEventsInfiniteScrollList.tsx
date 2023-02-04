@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import { Description, EventsListImage } from './CommonComponents';
 import DateUtils from '../utilities/DateUtils';
 
-export interface DSEventsProps {
+export interface DSEventsInfiniteScrollListProps {
     events: DSEvent[]
 }
 
 export const EVENT_HEIGHT = 180
 
-export default function DSEvents({ events, ...props }: DSEventsProps) {
+export default function DSEventsInfiniteScrollList({ events, ...props }: DSEventsInfiniteScrollListProps) {
 
     const navigate = useNavigate()
 
