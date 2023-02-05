@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ReactPaginate from 'react-paginate';
 import { DSEvent } from '../model/DSEvent';
 import { Box, Pagination, Paper, Stack, Typography, useTheme } from '@mui/material';
 import { Description, EventsListImage } from './CommonComponents';
@@ -9,46 +8,60 @@ export interface DSEventsPaginatedProps {
     events: DSEvent[]
 }
 
-export const EVENT_HEIGHT = 180
-
 export default function DSEventsPaginated({ events, ...props }: DSEventsPaginatedProps) {
 
     const theme = useTheme()
-    const dsEvents = events
 
-    const [currentPage, setCurrentPage] = React.useState(0);
     const [data, setData] = React.useState<DSEvent[]>([]);
+    const [pageData, setPageData] = React.useState<DSEvent[]>([]);
+    const [pageCount, setPageCount] = React.useState<number>(0);
+
+    const PER_PAGE = 5;
+    const EVENT_HEIGHT = 180
 
     React.useEffect(() => {
         fetchData();
     }, []);
 
     function fetchData() {
-        fetch("https://ihsavru.me/Demo/uploads.json")
-            .then((res) => res.json())
-            .then((data) => {
-                let result: DSEvent[] = []
-                for (let i = 0; i < 10; i++) {
-                    result.concat(events)
-                }
-                setData(events)
-            });
+        let result = []
+        for (let i = 0; i < 50; i++) {
+            let event = { ...events[0] }
+            event.title += ' ' + (i + 1)
+            result.push(event)
+        }
+        setPageCount(Math.ceil(result.length / PER_PAGE))
+        setData(result)
+
     }
 
-    const PER_PAGE = 5;
+    React.useEffect(() => {
+        pickPageData(1)
+    }, [data]);
 
-    const offset = currentPage * PER_PAGE;
+    const pickPageData = (page: number) => {
 
-    const pageCount = Math.ceil(data.length / PER_PAGE);
+        let beginIndex = 0
+        let endIndex = 0
 
-    function handlePageClick({ selected: selectedPage }: { selected: number }) {
-        setCurrentPage(selectedPage);
+        beginIndex = (page - 1) * PER_PAGE
+        endIndex = beginIndex + PER_PAGE
+
+        let result = data.slice(beginIndex, endIndex)
+
+        setPageData(result)
+
+        window.scrollBy(0, -(PER_PAGE - 1) * EVENT_HEIGHT)
+    }
+
+    const onPageChangedListener = (event: any, page: number) => {
+        pickPageData(page)
     }
 
     return (
-        <>
-            {dsEvents.map((event: DSEvent) => (
-                <Paper elevation={3} sx={{ width: '100%' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+            {pageData.map((event: DSEvent) => (
+                <Paper elevation={3} sx={{ width: '100%', marginBottom: theme.spacing(1), boxSizing: 'border-box' }}>
                     <Box
                         sx={{
                             width: '100%',
@@ -77,7 +90,7 @@ export default function DSEventsPaginated({ events, ...props }: DSEventsPaginate
                     </Box>
                 </Paper>
             ))}
-            <Pagination count={10} color="primary" />
-        </>
+            <Pagination count={pageCount} color="primary" sx={{ alignSelf: 'center' }} onChange={onPageChangedListener} />
+        </Box>
     )
 }
