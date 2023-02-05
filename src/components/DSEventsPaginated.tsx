@@ -61,22 +61,40 @@ export default function DSEventsPaginated({ events, ...props }: DSEventsPaginate
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             {pageData.map((event: DSEvent) => (
-                <Paper elevation={3} sx={{ width: '100%', marginBottom: theme.spacing(1), boxSizing: 'border-box' }}>
+                <Paper elevation={3} sx={{
+                    width: '100%',
+                    marginBottom: theme.spacing(1),
+                    boxSizing: 'border-box',
+                    [theme.breakpoints.down('sm')]: {
+                        width: 319,
+                        alignSelf: 'center'
+                    }
+                }}>
                     <Box
                         sx={{
                             width: '100%',
                             display: 'flex',
-                            [theme.breakpoints.down('md')]: {
-                                flexDirection: 'column',
-                                height: EVENT_HEIGHT * 2,
-                            },
-                            [theme.breakpoints.up('md')]: {
-                                flexDirection: 'row',
-                                height: EVENT_HEIGHT,
-                            }
+                            height: EVENT_HEIGHT,
+                            position: 'relative'
                         }}>
-                        <EventsListImage src={event.coverPhotoUrl} sx={{ width: 320, height: 180, alignSelf: 'center' }}></EventsListImage>
-                        <Stack direction='column' sx={{ padding: theme.spacing(2), flexGrow: 1, overflow: 'hidden' }}>
+                        <EventsListImage
+                            src={event.coverPhotoUrl}
+                            sx={{
+                                width: 320,
+                                height: 180,
+                                alignSelf: 'center'
+                            }}
+                        />
+                        <Stack direction='column'
+                            sx={{
+                                padding: theme.spacing(2),
+                                flexGrow: 1,
+                                overflow: 'hidden',
+                                placeSelf: 'end',
+                                [theme.breakpoints.down('sm')]: {
+                                    visibility: 'hidden'
+                                }
+                            }}>
                             <Typography
                                 variant='body1'
                                 sx={{ paddingBottom: theme.spacing(1), fontWeight: 'bold' }}

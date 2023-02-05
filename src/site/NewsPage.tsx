@@ -21,7 +21,7 @@ export default function NewsPage({ ...props }: NewsPageProps) {
             <DSPageSection>
                 <DSActiveEvent activeEvent={activeEvent} />
             </DSPageSection>
-            <DSPageSectionTitled title="EVENIMENTE" showPaper={false}>
+            <DSPageSectionTitled title="NOUTATI" showPaper={false}>
                 <DSEventsPaginated events={dsevents} />
             </DSPageSectionTitled>
         </DSPageContent>

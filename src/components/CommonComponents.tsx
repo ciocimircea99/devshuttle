@@ -9,7 +9,7 @@ export const ActiveEventImage = styled('img')({
 export const EventsListImage = styled('img')({
     height: '100%',
     width: '100%',
-    objectFit: 'cover',
+    objectFit: 'fill',
 })
 
 export const Description = styled('p')({
