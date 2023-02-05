@@ -105,8 +105,8 @@ export default function GalleryItem({ pictures, ...props }: GalleryItemProps) {
                 color="primary"
                 sx={{
                     position: 'absolute',
-                    top: 16,
-                    right: 16,
+                    top: 6,
+                    right: 6,
                 }}
                 onClick={() => enterFullcreen(0)}>
                 <FullscreenIcon />
