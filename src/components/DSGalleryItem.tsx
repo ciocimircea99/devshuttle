@@ -4,7 +4,8 @@ import {
     Box,
     ImageList,
     ImageListItem,
-    Fab
+    Fab,
+    IconButton
 } from '@mui/material';
 import Button from '@mui/material/Button';
 
@@ -30,7 +31,7 @@ export interface GalleryItemProps {
     pictures: string[]
 }
 
-export default function GalleryItem({ pictures,  ...props }: GalleryItemProps) {
+export default function GalleryItem({ pictures, ...props }: GalleryItemProps) {
 
     const theme = useTheme()
 
@@ -65,7 +66,6 @@ export default function GalleryItem({ pictures,  ...props }: GalleryItemProps) {
                 padding: theme.spacing(2),
                 boxSizing: 'border-box',
                 display: 'flex'
-
             }}>
                 <Swiper
                     modules={[Navigation, Scrollbar, Pagination, Autoplay]}
@@ -101,16 +101,6 @@ export default function GalleryItem({ pictures,  ...props }: GalleryItemProps) {
                     }
                 </Swiper>
             </Box>
-            <Button
-                size='large'
-                color='primary'
-                variant='contained'
-                sx={{
-                    margin: theme.spacing(2),
-                    boxSizing: 'border-box'
-                }}>
-                Gallery
-            </Button>
             <Fab size="large"
                 color="primary"
                 sx={{
@@ -138,6 +128,38 @@ export default function GalleryItem({ pictures,  ...props }: GalleryItemProps) {
                     </Box>
                 }
             </FullScreen>
+            <Box sx={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                position: 'absolute',
+                zIndex: 2,
+                top: 'calc(50% - 24px)',
+                paddingX: '6px',
+                boxSizing: 'border-box'
+            }}>
+                <IconButton
+                    size="large"
+                    sx={{
+                        backgroundColor: 'primary.main',
+                        "&:hover, &.Mui-focusVisible": { backgroundColor: "primary.main" }
+                    }}
+                    onClick={() => swiperRef.current?.slideNext()}
+                >
+                    <ChevronLeftIcon sx={{ color: 'white' }} />
+                </IconButton>
+                <IconButton
+                    size="large"
+                    sx={{
+                        backgroundColor: 'primary.main',
+                        "&:hover, &.Mui-focusVisible": { backgroundColor: "primary.main" }
+                    }}
+                    onClick={() => swiperRef.current?.slideNext()}
+                >
+                    <ChevronRightIcon sx={{ color: 'white' }} />
+                </IconButton>
+            </Box>
         </Box>
     )
 }
