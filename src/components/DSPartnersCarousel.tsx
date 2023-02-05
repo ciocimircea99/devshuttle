@@ -39,9 +39,6 @@ export default function DSPartnersCarousel({ pictures, ...props }: DSPartnersCar
             const undistributedWidth = width - slidesWidth
 
             let swipperPadding = Math.floor(undistributedWidth / 2) + 1
-            if (slidesPerView == pictures.length - 1) {
-                swipperPadding = 0
-            }
 
             setSlidesPerView(slidesPerView)
             setSwiperPadding(swipperPadding)

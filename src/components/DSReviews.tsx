@@ -43,7 +43,7 @@ export default function DSReviews({ reviews, ...props }: DSReviewsProps) {
                                     flexDirection: 'row',
                                     justifyContent: 'space-between'
                                 }}>
-                                <Stack direction='row'>
+                                <Box sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                                     <Avatar sx={{
                                         width: '56px',
                                         height: '56px',
@@ -70,7 +70,7 @@ export default function DSReviews({ reviews, ...props }: DSReviewsProps) {
                                             alignItems: 'center',
                                             marginLeft: theme.spacing(2)
                                         }} />
-                                </Stack>
+                                </Box>
                                 <Avatar sx={{ width: '36px', height: '36px', marginTop: theme.spacing(1), marginRight: theme.spacing(1) }}>
                                     {review.source}
                                 </Avatar>
