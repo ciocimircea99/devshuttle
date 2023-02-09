@@ -58,13 +58,13 @@ export default function ActiveEvent({ activeEvent, ...props }: ActiveEventProps)
                     }}>
                     <Typography
                         variant='body1'
-                        sx={{ paddingBottom: theme.spacing(1), fontWeight:'bold'}}
+                        sx={{ paddingBottom: theme.spacing(1), fontWeight: 'bold' }}
                     >{activeEvent.title}</Typography>
                     <Typography
                         variant='body2'
                         sx={{ paddingBottom: theme.spacing(1) }}
                     >{DateUtils.getDateFromTimestamp(activeEvent.date) + ' • ' + activeEvent.location}</Typography>
-                    <Description dangerouslySetInnerHTML={{ __html: description }} />
+                    {Description(activeEvent.description)}
                     <Button
                         variant="contained"
                         sx={{

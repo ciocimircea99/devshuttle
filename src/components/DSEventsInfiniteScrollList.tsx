@@ -70,6 +70,61 @@ export default function DSEventsInfiniteScrollList({ events, ...props }: DSEvent
         }
     }, [])
 
+    const renderItem = (event: DSEvent) => {
+        return (<ListItem disableGutters sx={{
+            width: '100%',
+        }}>
+            <Paper elevation={3} sx={{ width: '100%' }}>
+                <Box
+                    sx={{
+                        width: '100%',
+                        display: 'flex',
+                        [theme.breakpoints.down('md')]: {
+                            flexDirection: 'column',
+                            height: EVENT_HEIGHT * 2,
+                        },
+                        [theme.breakpoints.up('md')]: {
+                            flexDirection: 'row',
+                            height: EVENT_HEIGHT,
+                        }
+                    }}>
+                    <EventsListImage src={event.coverPhotoUrl} sx={{ width: 320, height: 180, alignSelf: 'center' }}></EventsListImage>
+                    <Stack direction='column' sx={{ padding: theme.spacing(2), flexGrow: 1, overflow: 'hidden' }}>
+                        <Typography
+                            variant='body1'
+                            sx={{ paddingBottom: theme.spacing(1), fontWeight: 'bold' }}
+                        >{event.title}</Typography>
+                        <Typography
+                            variant='body2'
+                            sx={{ paddingBottom: theme.spacing(1) }}
+                        >{DateUtils.getDateFromTimestamp(event.date)}</Typography>
+                        {Description(event.description)}
+                    </Stack>
+                </Box>
+            </Paper>
+        </ListItem>
+        )
+    }
+
+    const renderLoadingItem = () => {
+        return (
+            <ListItem disableGutters>
+                <Paper elevation={3} sx={{ width: '100%' }}>
+                    <Box
+                        sx={{
+                            width: '100%',
+                            height: EVENT_HEIGHT,
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'center'
+                        }}>
+                        <CircularProgress sx={{ width: '54px', hieght: '54px', alignSelf: 'center' }} />
+                    </Box>
+                </Paper>
+            </ListItem>
+        )
+    }
+
     return (
         <List
             ref={listEl}
@@ -80,58 +135,8 @@ export default function DSEventsInfiniteScrollList({ events, ...props }: DSEvent
                 paddingRight: theme.spacing(1)
             }}
         >
-            {
-                sEvents.map((event: DSEvent) => (
-                    <ListItem disableGutters sx={{
-                        width: '100%',
-                    }}>
-                        <Paper elevation={3} sx={{ width: '100%' }}>
-                            <Box
-                                sx={{
-                                    width: '100%',
-                                    display: 'flex',
-                                    [theme.breakpoints.down('md')]: {
-                                        flexDirection: 'column',
-                                        height: EVENT_HEIGHT * 2,
-                                    },
-                                    [theme.breakpoints.up('md')]: {
-                                        flexDirection: 'row',
-                                        height: EVENT_HEIGHT,
-                                    }
-                                }}>
-                                <EventsListImage src={event.coverPhotoUrl} sx={{ width: 320, height: 180, alignSelf: 'center' }}></EventsListImage>
-                                <Stack direction='column' sx={{ padding: theme.spacing(2), flexGrow: 1, overflow: 'hidden' }}>
-                                    <Typography
-                                        variant='body1'
-                                        sx={{ paddingBottom: theme.spacing(1), fontWeight: 'bold' }}
-                                    >{event.title}</Typography>
-                                    <Typography
-                                        variant='body2'
-                                        sx={{ paddingBottom: theme.spacing(1) }}
-                                    >{DateUtils.getDateFromTimestamp(event.date)}</Typography>
-                                    <Description dangerouslySetInnerHTML={{ __html: event.description }} />
-                                </Stack>
-                            </Box>
-                        </Paper>
-                    </ListItem>
-                ))
-            }
-            {
-                loading && <ListItem disableGutters>
-                    <Paper elevation={3} sx={{ width: '100%' }}>
-                        <Box
-                            sx={{
-                                width: '100%',
-                                height: EVENT_HEIGHT,
-                                display: 'flex',
-                                flexDirection: 'row',
-                                justifyContent: 'center'
-                            }}>
-                            <CircularProgress sx={{ width: '54px', hieght: '54px', alignSelf: 'center' }} />
-                        </Box>
-                    </Paper>
-                </ListItem>
-            }
+            {sEvents.map((event: DSEvent) => renderItem(event))}
+            {loading && renderLoadingItem()}
         </List >
     )
 }

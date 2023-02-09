@@ -12,12 +12,16 @@ export const EventsListImage = styled('img')({
     objectFit: 'fill',
 })
 
-export const Description = styled('p')({
-    maxHeight: '120px',
-    overflow: 'hidden',
-    fontSize: '12px',
-    boxSizing: 'border-box',
-    display: '-webkit-box',
-    WebkitBoxOrient: 'vertical',
-    WebkitLineClamp: 4,
-})
+export const Description = (htmlString: string) => {
+    const DescriptionComp = styled('p')({
+        maxHeight: '120px',
+        overflow: 'hidden',
+        fontSize: '12px',
+        boxSizing: 'border-box',
+        display: '-webkit-box',
+        WebkitBoxOrient: 'vertical',
+        WebkitLineClamp: 4,
+    })
+
+    return <DescriptionComp dangerouslySetInnerHTML={{ __html: htmlString }}></DescriptionComp>
+}
